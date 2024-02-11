@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import lombok.Builder;
-import org.hibernate.annotations.Collate;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
