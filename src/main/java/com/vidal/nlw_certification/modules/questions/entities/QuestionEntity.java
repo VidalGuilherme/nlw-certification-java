@@ -39,5 +39,6 @@ public class QuestionEntity {
     private List<QuestionAlternativeEntity> alternatives;
 
     @CreationTimestamp
+    @Column(columnDefinition = "timestamp default current_timestamp", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 }
