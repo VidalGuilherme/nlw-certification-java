@@ -12,6 +12,8 @@ import com.vidal.nlw_certification.modules.questions.entities.QuestionAlternativ
 import com.vidal.nlw_certification.modules.questions.entities.QuestionEntity;
 import com.vidal.nlw_certification.modules.questions.repositories.QuestionRepository;
 
+import jakarta.validation.Valid;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -86,7 +88,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<QuestionEntity> createQuestion(@RequestBody QuestionCreateDTO questionDto){
+    public ResponseEntity<QuestionEntity> createQuestion(@RequestBody @Valid QuestionCreateDTO questionDto){
         QuestionEntity QuestionEntity = new QuestionEntity();
         BeanUtils.copyProperties(questionDto, QuestionEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(questionRepository.save(QuestionEntity));
@@ -103,7 +105,7 @@ public class QuestionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateQuestion(@PathVariable(value = "id") UUID id, @RequestBody QuestionCreateDTO questionDto){
+    public ResponseEntity<Object> updateQuestion(@PathVariable(value = "id") UUID id, @RequestBody @Valid QuestionCreateDTO questionDto){
         Optional<QuestionEntity> question = questionRepository.findById(id);
         if(question.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Question Not Found");
