@@ -34,7 +34,7 @@ public class QuestionEntity {
 
     private String description;
 
-    @OneToMany
+    @OneToMany(targetEntity = QuestionAlternativeEntity.class)
     @JoinColumn(name = "question_id")
     private List<QuestionAlternativeEntity> alternatives;
 
