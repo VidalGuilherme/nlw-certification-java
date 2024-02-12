@@ -29,8 +29,8 @@ public class CreateSeed {
     }
 
     public void run(String... args) {
-        executeSqlFile("src/main/resources/seeds/certificationsCreate.sql");
         executeSqlFile("src/main/resources/seeds/questionsCreate.sql");
+        executeSqlFile("src/main/resources/seeds/certificationsCreate.sql");
     }
 
     private void executeSqlFile(String filePath) {

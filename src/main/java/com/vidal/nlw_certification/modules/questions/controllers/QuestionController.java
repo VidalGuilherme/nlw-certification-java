@@ -53,7 +53,7 @@ public class QuestionController {
         return ResponseEntity.ok().body(questions);
     }
 
-    private QuestionShowDTO convertQuestionToDto(QuestionEntity question){
+    public static QuestionShowDTO convertQuestionToDto(QuestionEntity question){
 
         QuestionShowDTO questionDto = QuestionShowDTO.builder()
             .id(question.getId())
@@ -69,7 +69,7 @@ public class QuestionController {
         return questionDto;
     }
 
-    private QuestionAlternativeShowDTO convertAlternativeToDto(QuestionAlternativeEntity alternative){
+    public static QuestionAlternativeShowDTO convertAlternativeToDto(QuestionAlternativeEntity alternative){
 
         return QuestionAlternativeShowDTO.builder()
         .id(alternative.getId())

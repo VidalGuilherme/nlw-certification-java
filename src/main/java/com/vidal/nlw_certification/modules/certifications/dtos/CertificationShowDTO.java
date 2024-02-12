@@ -3,8 +3,8 @@ package com.vidal.nlw_certification.modules.certifications.dtos;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import com.vidal.nlw_certification.modules.questions.dtos.QuestionShowDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CertificationCreateDTO {
+public class CertificationShowDTO {
 
-    @NotBlank
+    private UUID id;
     private String technology;
-    @NotEmpty
-    private List<UUID> questionsId;
+    private List<QuestionShowDTO> questions;
 }
