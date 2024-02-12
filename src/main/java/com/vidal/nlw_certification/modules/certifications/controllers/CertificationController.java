@@ -64,7 +64,7 @@ public class CertificationController {
     }
     
 
-    private CertificationShowDTO convertCertificationToDto(CertificationEntity certification){
+    public static CertificationShowDTO convertCertificationToDto(CertificationEntity certification){
 
         CertificationShowDTO certificationDto = CertificationShowDTO.builder()
             .id(certification.getId())
