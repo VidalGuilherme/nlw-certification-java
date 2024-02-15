@@ -73,7 +73,7 @@ public class CertificationController {
 
         List<QuestionShowDTO> questionsDto = certification.getCertificationQuestions()
             .stream()
-            .map( question -> QuestionController.convertQuestionToDto(question))
+            .map(QuestionShowDTO::new)
             .collect(Collectors.toList());
         
         certificationDto.setQuestions(questionsDto);

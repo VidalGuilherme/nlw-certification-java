@@ -4,21 +4,12 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class QuestionCreateDTO {
-
+public record QuestionCreateDTO (
     @NotBlank
-    private String technology;
+    String technology,
     @NotBlank
-    private String description;
+    String description,
     @NotEmpty
-    private List<QuestionAlternativeCreateDTO> alternatives;
-}
+    List<QuestionAlternativeCreateDTO> alternatives
+){ }

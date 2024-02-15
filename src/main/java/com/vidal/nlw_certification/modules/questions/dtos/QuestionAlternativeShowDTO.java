@@ -1,18 +1,14 @@
 package com.vidal.nlw_certification.modules.questions.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.vidal.nlw_certification.modules.questions.entities.QuestionAlternativeEntity;
 
 import java.util.UUID;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class QuestionAlternativeShowDTO {
-
-    private UUID id;
-    private String description;
+public record QuestionAlternativeShowDTO(
+        UUID id,
+        String description
+) {
+    public QuestionAlternativeShowDTO(QuestionAlternativeEntity questionAlternative){
+        this(questionAlternative.getId(), questionAlternative.getDescription());
+    }
 }
